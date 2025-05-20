@@ -2,6 +2,7 @@ package testScript;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
@@ -21,6 +22,10 @@ public class HomeTest extends Base {
 		homepage.clickOnsubmit();
 		homepage.clickOnAdminlink();
 		homepage.clickOnLogout();
+		
+		String expected = "Sign in to start your session";
+		String actual = homepage.getAdminText();
+		Assert.assertEquals(actual, expected, "User not logged out from the session");
 	}
 
 }

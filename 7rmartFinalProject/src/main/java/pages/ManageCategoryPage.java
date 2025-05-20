@@ -33,7 +33,7 @@ public class ManageCategoryPage {
 	private WebElement chooseFile;
 	@FindBy(xpath="//input[@value=\"no\" and @name=\"top_menu\"]")
 	private WebElement clickRadio;
-	@FindBy(xpath="//button[@name='create']")
+	@FindBy(xpath="//button[@type='submit']")
 	private WebElement saveButton;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-primary']")
 	private WebElement searchCategory;
@@ -41,6 +41,12 @@ public class ManageCategoryPage {
 	private WebElement categorySearchform;
 	@FindBy(xpath="//button[@class='btn btn-danger btn-fix']")
 	private WebElement SearchButton;
+	@FindBy(xpath="//h1[text()='List Categories']")
+	private WebElement ListCategory;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	private WebElement AddNewCategory;
+	@FindBy(xpath="//td[text()='New Category Sale']")
+	private WebElement AddedCategory;
 
 	public void enterusernameOnUsernameField(String username) {
 		usernamefield.sendKeys(username);
@@ -112,5 +118,20 @@ public class ManageCategoryPage {
 	public void clickSearchButton()
 	{
 		SearchButton.click();
+	}
+	public String presentListCategories()
+	{
+		return ListCategory.getText();
+		
+	}
+	public boolean addNewCategorySuccessfully()
+	{
+		return AddNewCategory.isDisplayed();
+		
+	}
+	public String searchAddedNewCategory()
+	{
+		return AddedCategory.getText();
+		
 	}
 }

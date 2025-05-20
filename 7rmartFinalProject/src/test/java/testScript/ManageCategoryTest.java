@@ -2,6 +2,7 @@ package testScript;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -24,6 +25,10 @@ public class ManageCategoryTest extends Base {
 		category.enterPasswordonPasswordField(password);
 		category.clickOnsubmit();
 		category.clickOnManageCategory();
+		
+		String expected = "List Categories";
+		String Actual = category.presentListCategories();
+		Assert.assertEquals(Actual,expected, "User failed to navigate to the Manage category");
 	}
 	@Test(description="Verify the user able to Add New category")
 	public void addNewCategory() throws IOException
@@ -40,6 +45,9 @@ public class ManageCategoryTest extends Base {
 		category.selectRadioButton();
 		category.saveCategoryclickButton();
 		category.scrollDown();
+		
+		boolean isAlertdisplayed = category.addNewCategorySuccessfully();
+		Assert.assertTrue(isAlertdisplayed,"The Category is failed to create");
 	 }
 	
 	@AfterMethod(description ="Verify user able to search category successfully")
@@ -52,6 +60,11 @@ public class ManageCategoryTest extends Base {
 		category.searchCategoryButton();
 		category.searchCategoryField(categoryname);
 		category.clickSearchButton();
+		//Ask except gettext any other ways
+		
+		String expected = categoryname;
+		String actual = category.searchAddedNewCategory();
+		Assert.assertEquals(actual, expected,"Unable to find the searched category");
 	}
 
 }

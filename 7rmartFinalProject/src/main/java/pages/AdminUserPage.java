@@ -41,6 +41,10 @@ public class AdminUserPage {
 	private WebElement searchusertype;
 	@FindBy(xpath="//button[@type='submit' and @name='Search']")
 	private WebElement searchbutton;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	private WebElement AlertuserSuccess;
+	@FindBy(xpath="//td[text()='Soumya']")
+	private WebElement searchResult;
 
 	public void enterusernameOnUsernameField(String username) {
 		usernamefield.sendKeys(username);
@@ -100,6 +104,18 @@ public class AdminUserPage {
 	public void searchUser()
 	{
 		searchbutton.click();
+	}
+	
+	public boolean alertSuccessCreateUser()
+	{
+		return AlertuserSuccess.isDisplayed();
+		
+	}
+	
+	public boolean searchReceivedUser()
+	{
+		return searchResult.isDisplayed();
+		
 	}
 
 }

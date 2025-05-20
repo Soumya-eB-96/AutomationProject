@@ -19,16 +19,21 @@ public class ManageNewsPage {
 	private WebElement usernamefield;
 	@FindBy(name = "password")
 	private WebElement passwordfield;
-	@FindBy(xpath = "//button[text()='Sign In']")////a[@onclick='click_button(2)']
+	@FindBy(xpath = "//button[text()='Sign In']") //// a[@onclick='click_button(2)']
 	private WebElement SignIn;
 	@FindBy(xpath = "//p[text()='Manage News']")
 	private WebElement manageNews;
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/news/add']")//"//a[@class='btn btn-rounded btn-danger']"
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/news/add']") // "//a[@class='btn btn-rounded
+																							// btn-danger']"
 	private WebElement addnews;
 	@FindBy(xpath = "//textarea[@id='news']")
 	private WebElement enternews;
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement savenewsButton;
+	@FindBy(xpath = "//h1[@class='m-0 text-dark']")
+	private WebElement manageNewstext;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	private WebElement createNews;
 
 	public void enterusernameOnUsernameField(String username) {
 		usernamefield.sendKeys(username);
@@ -47,21 +52,32 @@ public class ManageNewsPage {
 	}
 
 	public void clickAddNewsButton() {
-		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", addnews);
-		
-		
+
 	}
 
 	public void enterNewsontheField(String newscontent) {
-		
+
 		enternews.clear();
 		enternews.sendKeys(newscontent);
 	}
 
 	public void clickOnSaveNewsButton() {
 		savenewsButton.click();
+	}
+
+	public  String getNewsText()
+	{
+		return manageNewstext.getText();
+		
+	}
+	
+	public boolean alertVisible()
+	{
+		return createNews.isDisplayed();
+		
 	}
 
 }

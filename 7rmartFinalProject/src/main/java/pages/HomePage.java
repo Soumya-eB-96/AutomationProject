@@ -24,6 +24,9 @@ public class HomePage {
 	private WebElement Admin;
 	@FindBy(xpath = "//div[@class='dropdown-menu dropdown-menu-lg dropdown-menu-right text_black show']/a[2]")
 	private WebElement Logout;
+	@FindBy(xpath="//p[@class='login-box-msg']")
+	private WebElement startSession;
+	
 	
 
 	public void enterusernameOnUsernameField(String username) {
@@ -45,5 +48,9 @@ public class HomePage {
 	public void clickOnLogout() {
 		Logout.click();
 	}
-	
+	public String getAdminText()
+	{
+		return startSession.getText();
+		
+	}
 }

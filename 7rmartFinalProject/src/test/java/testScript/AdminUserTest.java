@@ -2,6 +2,7 @@ package testScript;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -31,6 +32,9 @@ public class AdminUserTest extends Base {
 		adminuser.enternewPasswordOntheField(pass);
 		adminuser.selectUserType(Admin);
 		adminuser.clickSaveLink();
+		
+		boolean isdisplayedAlert = adminuser.alertSuccessCreateUser();
+		Assert.assertTrue(isdisplayedAlert,"User not created successfully");
 
 	}
 
@@ -46,5 +50,8 @@ public class AdminUserTest extends Base {
 		adminuser.searchForUser(searchusername);
 		adminuser.selectUserTypesearch(Admin);
 		adminuser.searchUser();
+		
+		boolean isDisplayedUser= adminuser.searchReceivedUser();
+		Assert.assertTrue(isDisplayedUser,"User Failed to create not found under search");
 	}
 }

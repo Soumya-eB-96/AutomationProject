@@ -2,6 +2,7 @@ package testScript;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,6 +22,10 @@ public class ManageNewsTest extends Base {
 		news.enterPasswordonPasswordField(password);
 		news.clickOnsubmit();
 		news.navigateOnManageNews();
+		
+		String expected = "Manage News";
+		String actual = news.getNewsText();
+		Assert.assertEquals(actual, expected,"User unable to navigate to the Manage News section");
 	}
 
 	@Test(description = "Verify the user able to add the new news successfully")
@@ -31,6 +36,9 @@ public class ManageNewsTest extends Base {
 		news.clickAddNewsButton();
 		news.enterNewsontheField(newscontent);
 		news.clickOnSaveNewsButton();
+		
+		boolean isDisplayedAlert = news.alertVisible();
+		Assert.assertTrue(isDisplayedAlert, "Unable to create the news successfully");
 	}
 
 }
