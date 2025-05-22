@@ -21,7 +21,7 @@ public class LoginTest extends Base {
 		login.enterPasswordonPasswordField(password);
 		login.clickOnsubmit();
         // Assert equal
-		String expected = "dashBoard";
+		String expected = "Dashboard";
 		String actual = login.getDashboardText();
 		Assert.assertEquals(actual, expected, "User was unable to login with valid credentials");
 
