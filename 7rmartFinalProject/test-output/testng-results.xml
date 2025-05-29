@@ -1,53 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-20T19:21:11 IST" name="Suite" finished-at="2025-05-20T19:21:22 IST" duration-ms="10960">
+  <suite started-at="2025-05-29T14:55:51 IST" name="Suite" finished-at="2025-05-29T14:56:08 IST" duration-ms="17156">
     <groups>
     </groups>
-    <test started-at="2025-05-20T19:21:11 IST" name="Test" finished-at="2025-05-20T19:21:22 IST" duration-ms="10960">
-      <class name="testScript.LoginTest">
-        <test-method is-config="true" signature="initializebrowser()[pri:0, instance:testScript.LoginTest@4c51cf28]" started-at="2025-05-20T19:21:18 IST" name="initializebrowser" finished-at="2025-05-20T19:21:20 IST" duration-ms="2543" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializebrowser -->
-        <test-method signature="verifyUsercansuccessfullyloginwithvalidcredentials()[pri:0, instance:testScript.LoginTest@4c51cf28]" started-at="2025-05-20T19:21:20 IST" name="verifyUsercansuccessfullyloginwithvalidcredentials" description="Verifying user login with valid credentials" finished-at="2025-05-20T19:21:22 IST" duration-ms="1697" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyUsercansuccessfullyloginwithvalidcredentials -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScript.LoginTest@4c51cf28]" started-at="2025-05-20T19:21:22 IST" name="driverQuit" finished-at="2025-05-20T19:21:22 IST" duration-ms="4" status="PASS">
+    <test started-at="2025-05-29T14:55:51 IST" name="Test" finished-at="2025-05-29T14:56:08 IST" duration-ms="17156">
+      <class name="testScript.ManageCategoryTest">
+        <test-method is-config="true" signature="initializebrowser(java.lang.String)[pri:0, instance:testScript.ManageCategoryTest@177bea38]" started-at="2025-05-29T14:55:51 IST" name="initializebrowser" finished-at="2025-05-29T14:55:56 IST" duration-ms="5283" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyUsercansuccessfullyloginwithvalidcredentials status=SUCCESS method=LoginTest.verifyUsercansuccessfullyloginwithvalidcredentials()[pri:0, instance:testScript.LoginTest@4c51cf28] output={null}]]]>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializebrowser -->
+        <test-method signature="verifyuserAbletoAddNewCategory()[pri:0, instance:testScript.ManageCategoryTest@177bea38]" started-at="2025-05-29T14:55:56 IST" name="verifyuserAbletoAddNewCategory" description="Verify the user able to Add New category successfully" finished-at="2025-05-29T14:56:08 IST" duration-ms="11576" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyuserAbletoAddNewCategory -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScript.ManageCategoryTest@177bea38]" started-at="2025-05-29T14:56:08 IST" name="driverQuit" finished-at="2025-05-29T14:56:08 IST" duration-ms="12" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyuserAbletoAddNewCategory status=SUCCESS method=ManageCategoryTest.verifyuserAbletoAddNewCategory()[pri:0, instance:testScript.ManageCategoryTest@177bea38] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-      </class> <!-- testScript.LoginTest -->
-      <class name="testScript.HomeTest">
-        <test-method is-config="true" signature="initializebrowser()[pri:0, instance:testScript.HomeTest@1f010bf0]" started-at="2025-05-20T19:21:11 IST" name="initializebrowser" finished-at="2025-05-20T19:21:15 IST" duration-ms="4077" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializebrowser -->
-        <test-method signature="verifyWhetherUserisabletosuccessfullyLogoutfromeHomePage()[pri:0, instance:testScript.HomeTest@1f010bf0]" started-at="2025-05-20T19:21:15 IST" name="verifyWhetherUserisabletosuccessfullyLogoutfromeHomePage" description="Verify user able logout from home page" finished-at="2025-05-20T19:21:18 IST" duration-ms="2556" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyWhetherUserisabletosuccessfullyLogoutfromeHomePage -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScript.HomeTest@1f010bf0]" started-at="2025-05-20T19:21:18 IST" name="driverQuit" finished-at="2025-05-20T19:21:18 IST" duration-ms="5" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyWhetherUserisabletosuccessfullyLogoutfromeHomePage status=SUCCESS method=HomeTest.verifyWhetherUserisabletosuccessfullyLogoutfromeHomePage()[pri:0, instance:testScript.HomeTest@1f010bf0] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- driverQuit -->
-      </class> <!-- testScript.HomeTest -->
+      </class> <!-- testScript.ManageCategoryTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -15,14 +15,6 @@ public class AdminUserPage {
 
 	}
 
-	@FindBy(name = "username")
-	private WebElement usernamefield;
-	@FindBy(name = "password")
-	private WebElement passwordfield;
-	@FindBy(xpath = "//button[text()='Sign In']")
-	private WebElement SignIn;
-	@FindBy(xpath = "//a[@class='small-box-footer' and @href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
-	private WebElement Adminuserlink;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	private WebElement NewLink;
 	@FindBy(xpath = "//input[@id='username']")
@@ -33,89 +25,75 @@ public class AdminUserPage {
 	private WebElement Usertypedropdown;
 	@FindBy(xpath = "//button[@type='submit' and @name='Create']")
 	private WebElement saveLink;
-	@FindBy(xpath="//a[@class='btn btn-rounded btn-primary']")
+	@FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")
 	private WebElement searchButton;
-	@FindBy(xpath="//input[@class='form-control' and @id='un']")
+	@FindBy(xpath = "//input[@class='form-control' and @id='un']")
 	private WebElement searchuser;
-	@FindBy(xpath="//select[@class='form-control' and @id='ut']")
+	@FindBy(xpath = "//select[@class='form-control' and @id='ut']")
 	private WebElement searchusertype;
-	@FindBy(xpath="//button[@type='submit' and @name='Search']")
+	@FindBy(xpath = "//button[@type='submit' and @name='Search']")
 	private WebElement searchbutton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement AlertuserSuccess;
-	@FindBy(xpath="//td[text()='Soumya']")
+	@FindBy(xpath = "//td[text()='Soumya']")
 	private WebElement searchResult;
 
-	public void enterusernameOnUsernameField(String username) {
-		usernamefield.sendKeys(username);
-	}
-
-	public void enterPasswordonPasswordField(String password) {
-		passwordfield.sendKeys(password);
-	}
-
-	public void clickOnsubmit() {
-		SignIn.click();
-	}
-
-	public void clickOnAdminuser() {
-		Adminuserlink.click();
-	}
-
-	public void clickOnNew() {
-
+	public AdminUserPage clickOnNew() {
 		NewLink.click();
+		return this;
 	}
 
-	public void enternewusernameOnField(String user) {
+	public AdminUserPage enternewusernameOnField(String user) {
 		UsernameNew.sendKeys(user);
+		return this;
 	}
 
-	public void enternewPasswordOntheField(String pass) {
+	public AdminUserPage enternewPasswordOntheField(String pass) {
 		PasswordNew.sendKeys(pass);
+		return this;
 	}
 
-	public void selectUserType(String Admin) {
+	public AdminUserPage selectUserType(String Admin) {
 
 		Select select = new Select(Usertypedropdown);
 		select.selectByVisibleText(Admin);
+		return this;
 	}
 
-	public void clickSaveLink() {
+	public AdminUserPage clickSaveLink() {
 		saveLink.click();
+		return this;
 	}
-	
-	public void searchForCreatedUser()
-	{
+
+	public AdminUserPage searchForCreatedUser() {
 		searchButton.click();
+		return this;
 	}
-	
-	public void searchForUser(String searchusername)
-	{
-		searchuser.sendKeys(searchusername);	
+
+	public AdminUserPage searchForUser(String searchusername) {
+		searchuser.sendKeys(searchusername);
+		return this;
 	}
-	
-	public void selectUserTypesearch(String Admin)
-	{
+
+	public AdminUserPage selectUserTypesearch(String Admin) {
 		Select select = new Select(searchusertype);
 		select.selectByVisibleText(Admin);
+		return this;
 	}
-	
-	public void searchUser()
-	{
+
+	public AdminUserPage searchUser() {
 		searchbutton.click();
+		return this;
 	}
-	
-	public boolean alertSuccessCreateUser()
-	{
+
+	public boolean alertSuccessCreateUser() {
 		return AlertuserSuccess.isDisplayed();
-		
+
 	}
-	
-	public boolean searchReceivedUser()
-	{
+
+	public boolean searchReceivedUser() {
 		return searchResult.isDisplayed();
-		
+
 	}
 
 }

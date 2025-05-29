@@ -14,43 +14,52 @@ public class HomePage {
 
 	}
 
-	@FindBy(name = "username")
-	private WebElement usernamefield;
-	@FindBy(name = "password")
-	private WebElement passwordfield;
-	@FindBy(xpath = "//button[text()='Sign In']")
-	private WebElement SignIn;
+	@FindBy(xpath = "//p[text()='Manage News']")
+	private WebElement manageNews;
 	@FindBy(xpath = "//a[@data-toggle='dropdown']")
 	private WebElement Admin;
 	@FindBy(xpath = "//div[@class='dropdown-menu dropdown-menu-lg dropdown-menu-right text_black show']/a[2]")
 	private WebElement Logout;
 	@FindBy(xpath="//p[@class='login-box-msg']")
 	private WebElement startSession;
+	@FindBy(xpath = "//a[@class='small-box-footer' and @href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
+	private WebElement Adminuserlink;
+	@FindBy(xpath="//p[text()='Manage Category']")
+	private WebElement manageCategory;
 	
+
 	
 
-	public void enterusernameOnUsernameField(String username) {
-		usernamefield.sendKeys(username);
-	}
-
-	public void enterPasswordonPasswordField(String password) {
-		passwordfield.sendKeys(password);
-	}
-
-	public void clickOnsubmit() {
-		SignIn.click();
-	}
-
-	public void clickOnAdminlink() {
+	public HomePage clickOnAdminlink() {
 		Admin.click();
+		return this;
 	}
 
-	public void clickOnLogout() {
+	public LoginPage clickOnLogout() {
 		Logout.click();
+		return new LoginPage(driver) ;
 	}
 	public String getAdminText()
 	{
 		return startSession.getText();
 		
 	}
+	
+	public AdminUserPage clickOnAdminuser() {
+		Adminuserlink.click();
+		return new AdminUserPage(driver);
+	}
+	
+	public ManageNewsPage navigateOnManageNews() {
+		manageNews.click();
+		return new ManageNewsPage(driver);
+	}
+	
+	public ManageCategoryPage clickOnManageCategory()
+	{
+		manageCategory.click();
+		return new ManageCategoryPage(driver);
+	}
+	
+	
 }

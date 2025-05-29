@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 public class LoginPage {
 	public WebDriver driver;
+	WaitUtility wait = new WaitUtility();
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;// global and local variables is same so use concept 'this'
@@ -25,16 +28,21 @@ public class LoginPage {
 	@FindBy(xpath="//p[text()='Dashboard']")
 	private WebElement dashBoard;
 
-	public void enterusernameOnUsernameField(String username) {
+	public LoginPage enterusernameOnUsernameField(String username) {
 		usernamefield.sendKeys(username);
+		return this;
 	}
 
-	public void enterPasswordonPasswordField(String password) {
+	public LoginPage enterPasswordonPasswordField(String password) {
 		passwordfield.sendKeys(password);
+		return this;
 	}
 
-	public void clickOnsubmit() {
+	public HomePage clickOnsubmit() {
+		
+		wait.waitUntilClickable(driver, SignIn);
 		SignIn.click();
+		return new HomePage(driver);
 	}
 	
 	public boolean alertVisibility()

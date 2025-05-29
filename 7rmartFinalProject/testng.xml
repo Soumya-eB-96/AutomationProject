@@ -5,15 +5,13 @@
 		<listener class-name="listeners.listener"></listener>
 	</listeners>
 	<test thread-count="5" name="Test">
-
+	<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testScript.HomeTest" />
-			<class name="testScript.LoginTest">
-				<methods>
-					<include
-						name="verifyUsercansuccessfullyloginwithvalidcredentials"></include>
-				</methods>
-			</class>
+			<class name="testScript.ManageCategoryTest">
+			<methods>
+			<include name="verifyuserAbletoAddNewCategory"></include>
+			</methods>
+		    </class>
 		</classes>
 	</test> <!--
 	Test -->

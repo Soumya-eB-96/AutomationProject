@@ -1,10 +1,12 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import utilities.PageUtility;
 
 public class ManageCategoryPage {
 	
@@ -15,12 +17,6 @@ public class ManageCategoryPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(name = "username")
-	private WebElement usernamefield;
-	@FindBy(name = "password")
-	private WebElement passwordfield;
-	@FindBy(xpath = "//button[text()='Sign In']")
-	private WebElement SignIn;
 	@FindBy(xpath="//p[text()='Manage Category']")
 	private WebElement manageCategory;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Category/add']")
@@ -48,76 +44,75 @@ public class ManageCategoryPage {
 	@FindBy(xpath="//td[text()='New Category Sale']")
 	private WebElement AddedCategory;
 
-	public void enterusernameOnUsernameField(String username) {
-		usernamefield.sendKeys(username);
-	}
 
-	public void enterPasswordonPasswordField(String password) {
-		passwordfield.sendKeys(password);
-	}
-
-	public void clickOnsubmit() {
-		SignIn.click();
-	}
 	
-	public void clickOnManageCategory()
-	{
-		manageCategory.click();
-	}
 	
-	public void clickAddNewCategory()
+	
+	public ManageCategoryPage clickAddNewCategory()
 	{
 		AddNewButton.click();
+		return this;
 	}
 	
-	public void enterCategoryName(String categoryname)
+	public ManageCategoryPage enterCategoryName(String categoryname)
 	{
 		categoryName.sendKeys(categoryname);
+		return this;
 	}
 	
-	public void selectGroup()
+	public ManageCategoryPage selectGroup()
 	{
 		selectgroup.click();
+		return this;
 	}
 	
-	public void scrollDown()
+	public ManageCategoryPage scrollDown()
 	{
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0, 500);"); 
+		
+		PageUtility pageutility = new PageUtility();
+		pageutility.scrollDownpage(driver);
+		return this;
 
 	}
-	public void uploadFile(String path)
+	public ManageCategoryPage uploadFile(String path)
 	{
 		chooseFile.sendKeys(path);
+		return this;
 	}
 	
-	public void selectRadioButton()
+	public ManageCategoryPage selectRadioButton()
 	{
 		clickRadio.click();
+		return this;
 	}
 	
-	public void saveCategoryclickButton()
+	public ManageCategoryPage saveCategoryclickButton()
 	{
 		saveButton.click();
+		return this;
 	}
-	
-	public void navigateToManageCategory()
+	// search
+	public ManageCategoryPage navigateToManageCategory()
 	{
 		manageCategory.click();
+		return this;
 	}
 	
-	public void searchCategoryButton()
+	public ManageCategoryPage searchCategoryButton()
 	{
 		searchCategory.click();
+		return this;
 	}
 	
-	public void searchCategoryField(String categoryname)
+	public ManageCategoryPage searchCategoryField(String categoryname)
 	{
 		categorySearchform.sendKeys(categoryname);
+		return this;
 	}
-	public void clickSearchButton()
+	public ManageCategoryPage clickSearchButton()
 	{
 		SearchButton.click();
+		return this;
 	}
 	public String presentListCategories()
 	{
